@@ -30,7 +30,7 @@ public class MemberService {
         memberDto.setStatus(Status.REGISTERED);
         memberDto.setPassword(passwordEncoder.encode(memberDto.getPassword()));
 
-        String url = "http://localhost:8081/members/register";
+        String url = "http://localhost:8080/members/register";
         ResponseEntity<MemberDto> response = restApiClient.sendPostRequest(url, memberDto, MemberDto.class);
 
         if (response.getStatusCode() == HttpStatus.CREATED) {
@@ -44,7 +44,7 @@ public class MemberService {
 
     public boolean isExistMembers(String userId, List<String> memberIds) {
         try {
-            String url = "http://localhost:8081/members/lookup";
+            String url = "http://localhost:8080/members/lookup";
             HttpHeaders headers = new HttpHeaders();
             headers.set("X-USER-ID", userId);
 

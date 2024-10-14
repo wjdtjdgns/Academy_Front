@@ -23,7 +23,7 @@ public class ProjectService {
         String userId = (String) request.getAttribute("validatedUserId");
         try {
 
-            String url = "http://localhost:8082/projects?page=" + page + "&size=" + size;
+            String url = "http://localhost:8080/projects?page=" + page + "&size=" + size;
             HttpHeaders headers = new HttpHeaders();
             headers.set("X-USER-ID", userId);
 
@@ -46,7 +46,7 @@ public class ProjectService {
         String userId = (String) request.getAttribute("validatedUserId");
         try {
 
-            String url = "http://localhost:8082/projects/" + projectId;
+            String url = "http://localhost:8080/projects/" + projectId;
             HttpHeaders headers = new HttpHeaders();
             headers.set("X-USER-ID", userId);
 
@@ -68,7 +68,7 @@ public class ProjectService {
         String userId = (String) request.getAttribute("validatedUserId");
 
         try {
-            String url = "http://localhost:8082/projects";
+            String url = "http://localhost:8080/projects";
 
             HttpHeaders headers = new HttpHeaders();
             headers.set("X-USER-ID", userId);
@@ -102,7 +102,7 @@ public class ProjectService {
 
     public List<MemberInfoDto> lookupMembers(List<String> memberIds, String userId) {
         try {
-            String url = "http://localhost:8081/members/lookup";
+            String url = "http://localhost:8080/members/lookup";
 
             MemberRequest memberRequest = new MemberRequest(memberIds);
 
@@ -131,7 +131,7 @@ public class ProjectService {
 
     public List<TagDto> getProjectTags(Long projectId, String userId) {
         try {
-            String url = "http://localhost:8082/projects/" + projectId + "/tag";
+            String url = "http://localhost:8080/projects/" + projectId + "/tag";
             HttpHeaders headers = new HttpHeaders();
             headers.set("X-USER-ID", userId);
 
@@ -151,7 +151,7 @@ public class ProjectService {
 
     public List<MilestoneDto> getProjectMilestones(Long projectId, String userId) {
         try {
-            String url = "http://localhost:8082/projects/" + projectId + "/milestone";
+            String url = "http://localhost:8080/projects/" + projectId + "/milestone";
             HttpHeaders headers = new HttpHeaders();
             headers.set("X-USER-ID", userId);
 
@@ -175,7 +175,7 @@ public class ProjectService {
                 throw new RuntimeException("사용자가 존재하지 않습니다");
             }
 
-            String url = "http://localhost:8082/projects/" + projectId + "/members";
+            String url = "http://localhost:8080/projects/" + projectId + "/members";
             HttpHeaders headers = new HttpHeaders();
             headers.set("X-USER-ID", userId);
             headers.setContentType(MediaType.APPLICATION_JSON);
@@ -198,7 +198,7 @@ public class ProjectService {
 
     public TagDto addProjectTag(Long projectId, String userId, String tagName, HttpServletRequest request) {
         try {
-            String url = "http://localhost:8082/projects/" + projectId + "/tag";
+            String url = "http://localhost:8080/projects/" + projectId + "/tag";
             HttpHeaders headers = new HttpHeaders();
             headers.set("X-USER-ID", userId);
             headers.setContentType(MediaType.APPLICATION_JSON);
@@ -223,7 +223,7 @@ public class ProjectService {
 
     public MilestoneDto addProjectMilestone(Long projectId, String userId, String title, String startDate, String endDate, HttpServletRequest request) {
         try {
-            String url = "http://localhost:8082/projects/" + projectId + "/milestone";
+            String url = "http://localhost:8080/projects/" + projectId + "/milestone";
             HttpHeaders headers = new HttpHeaders();
             headers.set("X-USER-ID", userId);
             headers.setContentType(MediaType.APPLICATION_JSON);
